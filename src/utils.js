@@ -5,6 +5,7 @@ const articleData = {
   text: `
   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+  <p><a name="nhtsa" target="_blank" href="http://www-odi.nhtsa.dot.gov/owners/SearchResults?searchType=ID&targetCategory=R&searchCriteria.nhtsa_ids=05V347000&refurl=rss">NHTSA link OPENS IN NEW TAB</a></p>
   <img src="https://via.placeholder.com/150" alt="Image" />
   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
   `,
@@ -51,7 +52,8 @@ const articleData = {
     {
       id: 3,
       likes: 1,
-      commentText: "<p>Lerem Ipsum.... <i>Hi</i></p>",
+      commentText:
+        '<p>Lerem Ipsum.... <i>Hi</i></p><a href="#nhtsa">Internal link to nhtsa link</a>',
       name: "Bob",
       replies: []
     }
@@ -60,7 +62,7 @@ const articleData = {
 
 export const articleAPI = {
   get: () =>
-    new Promise(resolve => {
+    new Promise((resolve) => {
       setTimeout(() => resolve(articleData), 1000);
     })
 };

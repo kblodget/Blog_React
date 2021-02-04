@@ -24,6 +24,10 @@ class Artilce extends React.Component {
     if (!article) {
       return <div>Not yet article</div>;
     }
+    const config = {
+      WHOLE_DOCUMENT: true,
+      ADD_ATTR: ["controls", "target"]
+    };
 
     return (
       <div>
@@ -33,7 +37,9 @@ class Artilce extends React.Component {
         </strong>
         <div
           className="content"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(article.text) }}
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(article.text)
+          }}
         />
         <CommentsList comments={article.comments} />
       </div>
@@ -41,7 +47,7 @@ class Artilce extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   article: state.item,
   loading: state.loading,
   error: state.error
